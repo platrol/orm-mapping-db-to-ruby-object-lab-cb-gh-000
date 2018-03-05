@@ -3,9 +3,9 @@ class Student
 
   def self.new_from_db(row)
     s = Student.new
-    s.id = s[0],
-    s.name = s[1]
-    s.grade = s[2]
+    s.id = row[0],
+    s.name = row[1]
+    s.grade = row[2]
     s
   end
 
