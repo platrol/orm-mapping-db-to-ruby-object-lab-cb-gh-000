@@ -6,6 +6,7 @@ class Student
     s.id = s[0],
     s.name = s[1]
     s.grade = s[2]
+    s
   end
 
   def self.all
