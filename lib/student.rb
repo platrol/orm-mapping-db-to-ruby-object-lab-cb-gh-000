@@ -3,7 +3,6 @@ class Student
   attr_accessor :id, :name, :grade
 
   def self.new_from_db(row)
-
     s = self.new
     s.id = row[0]
     s.name = row[1]
@@ -15,6 +14,12 @@ class Student
   def self.all
     # retrieve all the rows from the "Students" database
     # remember each row should be a new instance of the Student class
+    sql = <<-SQL
+      SELECT * FROM students
+      SQL
+    DB[:conn].execute.(sql).map do |row|
+      Student.new_from_db(row)
+    end
   end
 
   def self.find_by_name(name)
